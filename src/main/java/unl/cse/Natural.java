@@ -12,36 +12,47 @@ public class Natural {
 	/**
 	 * Computes the sum of natural numbers 1..n using a while loop.
 	 * 
-	 * @return
+	 * @return sum of the natural numbers
 	 */
 	public static int sumWithWhile(int n) {
 		// TODO: write a while-loop to compute the sum of 1..n
-		return 0;
+		int count = 0;
+		int sum = 0;
+		while(count <= n) {
+			sum += count;
+			count++;
+		}
+		return sum;
 	}
 
 	/**
 	 * Computes the sum of natural numbers 1..n using a for loop.
 	 * 
-	 * @return
+	 * @return sum of the natural numbers
 	 */
 	public static int sumWithFor(int n) {
 		// TODO: write a for-loop to compute the sum of 1..n
-		return 0;
+		int sum = 0;
+		for(int i = 0; i <= n ; i++) {
+			sum += i;
+		}
+		return sum;
 	}
 
 	public static void main(String args[]) {
-		if (args.length != 1) {
-			System.err.println("ERROR: expecting a single integer argument");
-			System.exit(1);
-		}
-
-		Integer n = null;
-		try {
-			n = Integer.parseInt(args[0]);
-		} catch (NumberFormatException nfe) {
-			System.err.println("ERROR: expecting a single integer argument");
-			System.exit(1);
-		}
+//		if (args.length != 1) {
+//			System.err.println("ERROR: expecting a single integer argument");
+//			System.exit(1);
+//		}
+//
+//		Integer n = null;
+//		try {
+//			n = Integer.parseInt(args[0]);
+//		} catch (NumberFormatException nfe) {
+//			System.err.println("ERROR: expecting a single integer argument");
+//			System.exit(1);
+//		}
+		int n = 9;
 
 		String zeroToTen[] = new String[11];
 		zeroToTen[0] = "zero";
@@ -56,9 +67,23 @@ public class Natural {
 		zeroToTen[9] = "nine";
 		zeroToTen[10] = "ten";
 
-		// TODO: call your methods here and print the result
-
 		// TODO: write an enhanced for-loop to iterate over the zeroToTen array
+		for(String s : zeroToTen) {
+			if(s == zeroToTen[n]) {
+				System.out.print(s + " = ");
+				break;
+			}
+			else {
+				System.out.print(s + " + ");
 
+			}
+		}
+		
+		// TODO: call your methods here and print the result
+		System.out.println(sumWithFor(n));
+		System.out.print(sumWithWhile(n));
+
+		
+		
 	}
 }

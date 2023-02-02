@@ -22,9 +22,33 @@ public class ChildCredit {
 	 * @return
 	 */
 	public static int produceReport(List<Child> kids) {
+		boolean hasSeveralChildren = false;
 		// TODO: write a loop to iterate over the elements in the child array
 		// and output a table as specified
-		return 0;
+		int total = 0;
+		System.out.println("Child		Amount");
+		for(int i = 0 ; i < kids.size(); i++) {
+			System.out.print(kids.get(i).getName()+ " (" + kids.get(i).getAge() + ")  ");
+
+			if(kids.get(i).getAge() < 18) {
+				if(hasSeveralChildren == true) {
+					total += 500;
+					System.out.println("$500.00");
+				}
+				else {
+					total += 1000;
+					System.out.println("$1000.00");
+					hasSeveralChildren = true;
+				}
+				
+			}
+			else {
+				System.out.println("$0.00");
+			}
+			
+		}
+		System.out.print("Total Credit: $" + total);
+		return total;
 
 	}
 
